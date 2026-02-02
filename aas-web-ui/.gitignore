@@ -25,3 +25,9 @@ tsconfig.tsbuildinfo
 
 # coverages
 /coverage
+
+# Claude Code
+.claude/
+
+# npm lock file (using yarn)
+package-lock.json
