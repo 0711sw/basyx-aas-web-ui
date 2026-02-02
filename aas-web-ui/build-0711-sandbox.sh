@@ -7,9 +7,16 @@ S3_BUCKET="s3://basyx.durablox.net"
 echo "=== BaSyx AAS Web UI Build & Deploy ==="
 echo
 
+# 0. Reset generated files to upstream versions (avoid merge conflicts)
+echo "[0/4] Resetting generated files..."
+git checkout yarn.lock public/worker.mjs 2>/dev/null || true
+
 # 1. Install dependencies
 echo "[1/4] Installing dependencies..."
 npm install
+
+# Reset files that npm install might have changed
+git checkout yarn.lock public/worker.mjs 2>/dev/null || true
 
 # 2. Build (skip prebuild hooks - external project, just build & deploy)
 echo "[2/4] Building production bundle..."
