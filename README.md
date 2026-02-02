@@ -1,5 +1,42 @@
 # BaSyx AAS Web UI
 
+## Modifications by 0711 Software GmbH
+
+This is a fork of [eclipse-basyx/basyx-aas-web-ui](https://github.com/eclipse-basyx/basyx-aas-web-ui), customized for our infrastructure.
+
+### What's Changed
+
+| File | Description |
+|------|-------------|
+| `aas-web-ui/.env.production` | Pre-configured endpoints pointing to `https://aas.durablox.net` |
+| `aas-web-ui/build-0711-sandbox.sh` | Build & deploy script for our S3 bucket |
+
+### Configuration
+
+All BaSyx component URLs are configured in `aas-web-ui/.env.production`:
+
+- AAS Repository, Submodel Repository, Registries, Discovery — all pointing to `https://aas.durablox.net`
+- Endpoint configuration dialog is disabled (`VITE_ENDPOINT_CONFIG_AVAILABLE=false`)
+
+### Build & Deploy
+
+```bash
+cd aas-web-ui
+./build-0711-sandbox.sh
+```
+
+This script:
+1. Installs dependencies (`npm install`)
+2. Builds the production bundle (`npx vite build`, skips lint/tests)
+3. Authenticates via AWS SSO if needed (profile: `sandbox`)
+4. Deploys to S3
+
+### Production URL
+
+https://basyx.durablox.net
+
+---
+
 ![Docker Pulls](https://img.shields.io/docker/pulls/eclipsebasyx/aas-gui)
 ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/eclipsebasyx/aas-gui)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/eclipse-basyx/basyx-aas-web-ui)

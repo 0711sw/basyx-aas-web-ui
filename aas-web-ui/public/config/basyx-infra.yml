@@ -11,24 +11,24 @@
 
 infrastructures:
   # Specify which infrastructure should be selected by default
-  default: local
+  default: sandbox
 
-  # Local development infrastructure (no authentication)
-  local:
-    name: Local BaSyx
+  # Durablox Sandbox Environment
+  sandbox:
+    name: Durablox Sandbox Environment
     components:
       aasDiscovery:
-        baseUrl: "http://localhost:9084"
+        baseUrl: "https://aas.durablox.net"
       aasRegistry:
-        baseUrl: "http://localhost:9082"
+        baseUrl: "https://aas.durablox.net"
       submodelRegistry:
-        baseUrl: "http://localhost:9083"
+        baseUrl: "https://aas.durablox.net"
       aasRepository:
-        baseUrl: "http://localhost:9081"
+        baseUrl: "https://aas.durablox.net"
       submodelRepository:
-        baseUrl: "http://localhost:9081"
+        baseUrl: "https://aas.durablox.net"
       conceptDescriptionRepository:
-        baseUrl: "http://localhost:9081"
+        baseUrl: "https://aas.durablox.net"
     security:
       type: none
 
