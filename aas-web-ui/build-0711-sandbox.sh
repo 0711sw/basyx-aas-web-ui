@@ -13,10 +13,10 @@ git checkout yarn.lock public/worker.mjs 2>/dev/null || true
 
 # 1. Install dependencies
 echo "[1/4] Installing dependencies..."
-npm install
+yarn install --frozen-lockfile
 
-# Reset files that npm install might have changed
-git checkout yarn.lock public/worker.mjs 2>/dev/null || true
+# Reset files that yarn install might have changed
+git checkout public/worker.mjs 2>/dev/null || true
 
 # 2. Build (skip prebuild hooks - external project, just build & deploy)
 echo "[2/4] Building production bundle..."
