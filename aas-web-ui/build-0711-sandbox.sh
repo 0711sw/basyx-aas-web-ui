@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-export AWS_PROFILE="sandbox"
+export AWS_PROFILE="dbx-sandbox"
 S3_BUCKET="s3://basyx.durablox.net"
 
 echo "=== BaSyx AAS Web UI Build & Deploy ==="
